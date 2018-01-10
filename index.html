@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="JavaScript/node_modules/flipclock/compiled/flipclock.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="center">
+        <label for="inTime">Tiempo: </label>
+        <input name="inTime" type="time" id="inTime" step="1">
+    </div>
+
+    <div class="center">
+        <button id="btnRecord" onclick="beginRecord()"> RECORD </button>
+        <button id="btnNewRecord" onclick="newRecord()" > NEW </button>
+        <button id="btnDownload" onclick="getSoundFile()" > DOWNLOAD </button>
+    </div>
+    
+
+    <div class="clock center"></div>
+
+    <div class="center" id="message"></div>
+
+    <div id="dial-section" class="center"></div>
+
+    <script src="JavaScript/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="JavaScript/p5/p5.min.js"></script>
+    <script src="JavaScript/p5/addons/p5.sound.min.js"></script>
+    <script src="JavaScript/node_modules/Chart.js/dist/Chart.min.js"></script>
+    <!--<script src="JavaScript/node_modules/timer.js/dist/timer.min.js"></script>-->
+    <script src="JavaScript/node_modules/flipclock/compiled/flipclock.min.js"></script>
+    <script src="JavaScript/jQuery-Knob/dist/jquery.knob.min.js"></script>
+    <script src="JavaScript/sketch.js"></script>
+
+</body>
+</html>
