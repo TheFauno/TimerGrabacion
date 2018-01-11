@@ -100,7 +100,7 @@ function startTimer(){
         //config
         readOnly: true,
         rotation: "clockwise",
-        step: 1,
+        step: 0.1,
         //UI
         'format' : function (value) {
             return value + '%';
