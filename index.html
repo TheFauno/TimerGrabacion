@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es-cl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +8,51 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Grabador sonido</title>
 </head>
+
 <body>
 
     <div class="container">
-
-        <div class="row align-items-center">
-            <div class="col"></div>
-            <div class="col col-ms-12">
-                <label for="inTime">Duración: </label>
-                <input name="inTime" type="time" id="inTime" step="1" value="00:00:00">
+        <div class="jumbotron mt-5">
+            <div class="row mb-4 mt-2">
+                <div class="col-auto col-sm  text-center">
+                    <label for="inTime">Duración: </label>
+                    <input name="inTime" type="time" id="inTime" step="1" value="00:00:00">
+                </div>
             </div>
-            <div class="col"></div>
-        </div>
-        
-        <div class="">
-            <button id="btnRecord"> GRABAR </button>
-            <button id="btnStop"> DETENER </button>
-            <button id="btnNewRecord"> NUEVA </button>
-            <button id="btnPlay"> ESCUCHAR </button>
-            <button id="btnDownload"> DESCARGAR </button>
-        </div>
 
-        <div class="clock " id="clock-section"></div>
-        <div class="" id="message"></div>
-        <div id="dial-section" class=""></div>
+            <div class="row mb-2">
+                <div class="col-6 col-sm-2 col-lg mb-2 text-center">
+                    <button class="btn btn-primary" id="btnRecord">GRABAR</button>
+                </div>
+                <div class="col-6 col-sm-2 col-lg mb-2 text-center">
+                    <button class="btn btn-warning" id="btnStop">DETENER</button>
+                </div>
+                <div class="col-6 col-sm-2 col-lg mb-2 text-center">
+                    <button class="btn btn-danger" id="btnNewRecord">REINICIAR</button>
+                </div>
+                <div class="col-6 col-sm-2 col-lg mb-2 text-center">
+                    <button class="btn btn-success" id="btnPlay">ESCUCHAR</button>
+                </div>
+                <div class="col-6 col-sm-2 col-lg mb-2 text-center">
+                    <button class="btn btn-info" id="btnDownload">DESCARGAR</button>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-4 col-md-4 offset-md-4">
+                    <div class="clock text-center" id="clock-section"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4 col-md-4 offset-md-4">
+                    <div id="dial-section" class="text-center"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
 
     <script src="js/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -42,4 +63,5 @@
     <script src="js/sketch.js"></script>
 
 </body>
+
 </html>

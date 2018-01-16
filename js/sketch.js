@@ -86,14 +86,12 @@ document.getElementById("btnRecord").addEventListener("click", function(){
         recorder.record(soundFile, countDownTime, function(){
             //some action when record is out of time
             if(state ===1){
-                console.log("terminado");
                 timer.pause();
                 $('#dial-section').pietimer("pause");
                 state = 2;
             }
         });
         state++;
-        console.log("salida redord: "+state);
     }
 });
 
@@ -108,7 +106,6 @@ document.getElementById("btnStop").addEventListener("click", function(){
 });
 
 document.getElementById("btnNewRecord").addEventListener("click", function(){
-    console.log("entrada new record: "+state);
     if(state === 2 ){
         $("#clock-section > p").remove();
         $("#dial-section > canvas").remove();
