@@ -86,7 +86,7 @@ document.getElementById("btnRecord").addEventListener("click", function(){
         recorder.record(soundFile, countDownTime, function(){
             //some action when record is out of time
             if(state ===1){
-                timer.pause();
+                timer.stop();
                 $('#dial-section').pietimer("pause");
                 state = 2;
             }
@@ -97,7 +97,7 @@ document.getElementById("btnRecord").addEventListener("click", function(){
 
 document.getElementById("btnStop").addEventListener("click", function(){
     if (state === 1) {
-        timer.pause();
+        timer.stop();
         $('#dial-section').pietimer("pause");
         state = 2;
       } else {
@@ -107,6 +107,8 @@ document.getElementById("btnStop").addEventListener("click", function(){
 
 document.getElementById("btnNewRecord").addEventListener("click", function(){
     if(state === 2 ){
+        timer.removeEventListener("secondsUpdated");
+        timer.reset;
         $("#clock-section > p").remove();
         $("#dial-section > canvas").remove();
         state = 0;
