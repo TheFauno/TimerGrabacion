@@ -41,16 +41,17 @@ document.getElementById("btnRecord").addEventListener("click", function(){
         var inTime = document.getElementById("inTime").value;
         var cdt = inTime.split(":"); //HH:MM:SS array*/
         //str to num
-        cdt[0] = parseInt(cdt[0]);
-        cdt[1] = parseInt(cdt[1]);
-        //var ms = cdt[2].split(".");
-        cdt[2] = parseInt(cdt[2]);
-        //cdt[3] = parseFloat(ms[1]/1000);
+        cdt[0] = parseInt(cdt[0]); //hora
+        cdt[1] = parseInt(cdt[1]); //minuto
+        var ms = cdt[2].split("."); 
+        cdt[2] = parseInt(ms[0]); //segundo
+        cdt[3] = parseFloat(ms[1]); //milesima a segundo
+        console.log(ms[0]+ "-"+ms[1])
         //calculate ms
         cdt[4] = (( 
             (cdt[0]*60+cdt[1])
             *60)
-            +cdt[2]); // total seconds = 100%
+            +cdt[2]) + cdt[3]/1000; // total seconds = 100%
         countDownTime = cdt[4];
         //initialize timer
         timer.start(
@@ -61,7 +62,7 @@ document.getElementById("btnRecord").addEventListener("click", function(){
                     hours: cdt[0],
                     minutes: cdt[1],
                     seconds: cdt[2],
-                    secondTenths: 0
+                    secondTenths: cdt[3]/1000
                 }
             }
         );
@@ -83,6 +84,7 @@ document.getElementById("btnRecord").addEventListener("click", function(){
 
         $('#dial-section').pietimer("start");
         // record to our p5.SoundFile
+        console.log("esta grabando");
         recorder.record(soundFile, countDownTime, function(){
             //some action when record is out of time
             if(state ===1){
@@ -99,6 +101,7 @@ document.getElementById("btnStop").addEventListener("click", function(){
     if (state === 1) {
         timer.stop();
         $('#dial-section').pietimer("pause");
+        recorder.stop();
         state = 2;
       } else {
         showMessage();
