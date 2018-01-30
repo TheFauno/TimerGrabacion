@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/micss.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Grabador sonido</title>
 </head>
 
@@ -14,6 +16,10 @@
     <div class="container">
         <div class="jumbotron mt-5">
             <div class="row mb-4 mt-2">
+                <div class="col-auto col-sm text-center">
+                    <input type="file" name="excel" id="excel">
+                </div>
+                <div id="select-div" class="col-auto col-sm text-center"></div>
                 <div class="col-auto col-sm  text-center">
                     <label for="inTime">Duración: </label>
                     <input name="inTime" type="time" id="inTime" step="0.001" value="00:00:00.000">
@@ -49,13 +55,21 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="jumbotron mt-5 ml-4 mr-4">
+    <div class="container">
+        <div class="jumbotron mt-5 ml-5 mr-5">
             <div class="row">
-                <div class="col-6 sm-12 text-center">
-                    Si comparamos la funcion polinomial con la con función h de x igual a dos 
-                    factor de la expresion equis menos 2 elevada a cuatro mas uno, podemos visualizar 
-                    los valores de a, b y c
+                <div class="col-4 col-sm-4 col-md-3">
+                    <p class="text-center">
+                        <button id="btnLeft" class="btn btn-primary" type="button"><i class="material-icons">chevron_left</i></button>
+                    </p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6">
+                    <p id="guion" class="text-center"></p>
+                </div>
+                <div class="col-4 col-sm-4 col-md-3">
+                        <button id="btnRight" class="btn btn-primary" type="button"><i class="material-icons">chevron_right</i></button>
                 </div>
             </div>
         </div>
@@ -70,8 +84,9 @@
     <script src="js/p5/addons/p5.sound.min.js"></script>
     <script src="js/jquery.pietimer.min.js"></script>
     <script src="js/node_modules/easytimer/dist/easytimer.min.js"></script>
+    <script src="node_modules/xlsx/dist/xlsx.full.min.js"></script>
     <script src="js/sketch.js"></script>
-
+    <script src="js/XLSXFileReader.js"></script>
 </body>
 
 </html>
