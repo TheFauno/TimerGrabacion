@@ -1,1 +1,8 @@
-.fontsize
+@keyframes karaoke {
+    0% {color: black;}
+    100% {color: red;}
+}
+
+p#guion {
+    font-size: 40px;
+}

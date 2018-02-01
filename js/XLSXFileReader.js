@@ -21,7 +21,8 @@ function init(select_div, json){
         //crear label
         select_div.innerHTML = "Fila: " + 1;
         var i = 0;
-        document.getElementById('guion').innerHTML = json[i].guion;
+        document.getElementById('guion').innerHTML = json[i]["Guión"];
+        document.getElementById('inTime').value = msToTime(json[i]["T Narra."]*1000);
         //agregar listeners a flechas guion
         document.onkeydown = function(e){
             var cont = false;
@@ -41,11 +42,10 @@ function init(select_div, json){
             }
 
             if(cont == true){
-                console.log(i);
-                document.getElementById('guion').innerHTML = json[i].guion;
+                document.getElementById('guion').innerHTML = json[i]["Guión"];
                 document.getElementById('select-div').innerHTML = "Fila: " + (i+1);
                 //cambiar y calcular valores de tiempo
-                 var inTimeVal = msToTime(json[i].tNarracion*1000);
+                var inTimeVal = msToTime(json[i]["T Narra."]*1000);
                 document.getElementById('inTime').value = inTimeVal;
             }
         }

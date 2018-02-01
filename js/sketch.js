@@ -3,6 +3,7 @@ var state = 0;
 var clock;
 var percent = 100;
 var timer = new Timer();
+var timerLetras;
 /*                           */
 //record actions 
 //0: ready to begin
@@ -46,7 +47,7 @@ document.getElementById("btnRecord").addEventListener("click", function(){
         var ms = cdt[2].split("."); 
         cdt[2] = parseInt(ms[0]); //segundo
         cdt[3] = parseFloat(ms[1]); //milesima a segundo
-        console.log(ms[0]+ "-"+ms[1])
+
         //calculate ms
         cdt[4] = (( 
             (cdt[0]*60+cdt[1])
@@ -70,6 +71,34 @@ document.getElementById("btnRecord").addEventListener("click", function(){
         inputClock.textContent = timer.getTimeValues().toString();
         });
 
+        //* ************************************************ *//
+        //separar palabras
+        var str = document.getElementById('guion').innerHTML;
+        //console.log(str); palabras
+        //console.log(str.trim(" ").split(/\s+/).length); letras
+        var palabras = [];
+        var tiempoPintado;
+        palabras = str.split(" "); //entrega palabras
+        palabras.length; //total palabras en el guion
+        tiempoPintado = palabras.length/100;
+        var texto = [];
+        //llenar arreglo de texto con duracion calculada
+        for(var i = 0; i <= palabras.length-1; i++ ){
+            arrPalabraDuracion = [palabras[i], tiempoPintado];
+            texto.push(arrPalabraDuracion);
+        }
+        console.log(texto);
+        //crear animacion css
+        //var animacion = document.createElement("style");
+        
+        //asignar tiempo pintado a clase para pintar
+
+        timerLetras = setInterval(function(){ 
+            //cantidad de letras
+            console.log(document.getElementById('guion').innerHTML.length);
+            //pintar letras
+        }, 500);//cada 0,5 S
+        //************************************************** */
         $('#dial-section').pietimer({
             // countdown from
             seconds: countDownTime,
@@ -84,12 +113,12 @@ document.getElementById("btnRecord").addEventListener("click", function(){
 
         $('#dial-section').pietimer("start");
         // record to our p5.SoundFile
-        console.log("esta grabando");
         recorder.record(soundFile, countDownTime, function(){
             //some action when record is out of time
             if(state ===1){
                 timer.stop();
                 $('#dial-section').pietimer("pause");
+                clearInterval(timerLetras);
                 state = 2;
             }
         });
