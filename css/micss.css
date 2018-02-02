@@ -1,8 +1,15 @@
 @keyframes karaoke {
-    0% {color: black;}
-    100% {color: red;}
+    from {background-color: rgb(233, 236, 239)}
+    to {background-color: yellow;}
 }
 
 p#guion {
     font-size: 40px;
+}
+
+.pintar-letras {
+    background-color: yellow;
+    animation-name: karaoke;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
 }

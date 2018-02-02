@@ -1,4 +1,4 @@
-document.getElementById('excel').addEventListener('change', function(){
+/*document.getElementById('excel').addEventListener('change', function(){
     var myxls = document.getElementById('excel');
     var reader = new FileReader();
     reader.readAsArrayBuffer(myxls.files[0]);
@@ -63,4 +63,4 @@ function msToTime(duration) {
     seconds = (seconds < 10) ? "0" + seconds : seconds;
 
     return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
-}
+}*/
